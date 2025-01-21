@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Results for "{{ query }}"</h1>
+    {% if results %}
+        <ul>
+        {% for book in results %}
+            <li>{{ book.title }} by {{ book.author }} ({{ book.year }})</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+    <a href="/">Back to search</a>
+</body>
+</html>
+"""
+
+# add_book.html
+"""
+<!doctype html>
+<html>
+<head>
+    <title>Add a New Book</title>
+</head>
+<body>
+    <h1>Add a New Book</h1>
+    <form action="/add" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required><br>
+
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" required><br>
+
+        <button type="submit">Add Book</button>
+    </form>
+    <a href="/">Back to home</a>
+</body>
+</html>
